@@ -33,7 +33,6 @@ public class WebSecurityConfiguration {
     }
 
     @Configuration
-    @Order(1)
     public static class HooksConfiguration extends WebSecurityConfigurerAdapter {
 
         @Override
@@ -46,19 +45,6 @@ public class WebSecurityConfiguration {
                     .antMatchers("/").permitAll()
                     .and()
                     .httpBasic();
-        }
-    }
-
-    @Configuration
-    @Order(2)
-    public static class GlobalConfig extends WebSecurityConfigurerAdapter {
-
-        @Override
-        public  void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .oauth2ResourceServer().jwt();
         }
     }
 }
