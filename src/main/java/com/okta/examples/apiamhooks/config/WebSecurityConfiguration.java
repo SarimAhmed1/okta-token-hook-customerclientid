@@ -16,11 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfiguration {
 
 
-    @Value("#{ @environment['okta.hooks.id'] }")
-    private String hooksId;
+    private String hooksId = "me@example.com";
 
-    @Value("#{ @environment['okta.hooks.password'] }")
-    private String hooksPassword;
+    private String hooksPassword = "whatevs";
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
