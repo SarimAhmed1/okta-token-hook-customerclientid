@@ -39,10 +39,13 @@ public class WebSecurityConfiguration {
         @Override
         public void configure(HttpSecurity http) throws Exception {
             http
-                .antMatcher("/api/hooks/**")
-                .csrf().disable()
-                .authorizeRequests()
-                .anyRequest().authenticated();
+                    .csrf().disable()
+                    .authorizeRequests()
+                    .antMatchers("/api/hooks/**")
+                    .authenticated()
+                    .antMatchers("/").permitAll()
+                    .and()
+                    .httpBasic();
         }
     }
 
