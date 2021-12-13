@@ -31,7 +31,7 @@ public class HooksController {
         return response;
     }
     @RequestMapping("/")
-    public String hi(@RequestBody TokenHookRequest request) {
+    public String hi() {
         return "sup";
     }
 
