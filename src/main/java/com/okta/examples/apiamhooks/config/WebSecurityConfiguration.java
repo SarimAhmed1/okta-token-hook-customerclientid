@@ -42,9 +42,7 @@ public class WebSecurityConfiguration {
                 .antMatcher("/api/hooks/**")
                 .csrf().disable()
                 .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic();
+                .anyRequest().authenticated();
         }
     }
 
